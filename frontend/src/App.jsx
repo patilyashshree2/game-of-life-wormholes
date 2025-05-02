@@ -6,6 +6,7 @@ export default function App() {
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(false);
   const backendURL = "https://your-backend-name.onrender.com";
+  // const backendURL = "http://localhost:8000";
 
 
   const handleFileChange = (e) => {
@@ -18,8 +19,8 @@ export default function App() {
     formData.append('starting_position', files.starting_position);
     formData.append('horizontal_tunnel', files.horizontal_tunnel);
     formData.append('vertical_tunnel', files.vertical_tunnel);
-
-    const res = await axios.post('${backendURL}/api/generate', formData);
+    
+    const res = await axios.post(`${backendURL}/api/generate`, formData);
     const result = res.data;
     const imageMap = {};
 
