@@ -5,6 +5,8 @@ export default function App() {
   const [files, setFiles] = useState({});
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(false);
+  const backendURL = "https://your-backend-name.onrender.com";
+
 
   const handleFileChange = (e) => {
     setFiles({ ...files, [e.target.name]: e.target.files[0] });
@@ -17,12 +19,12 @@ export default function App() {
     formData.append('horizontal_tunnel', files.horizontal_tunnel);
     formData.append('vertical_tunnel', files.vertical_tunnel);
 
-    const res = await axios.post('http://localhost:8000/api/generate', formData);
+    const res = await axios.post('${backendURL}/api/generate', formData);
     const result = res.data;
     const imageMap = {};
 
     for (const iteration of Object.keys(result)) {
-      const blobRes = await axios.get(`http://localhost:8000/${result[iteration]}`, {
+      const blobRes = await axios.get(`${backendURL}/${result[iteration]}`, {
         responseType: 'blob',
       });
       const url = URL.createObjectURL(blobRes.data);
