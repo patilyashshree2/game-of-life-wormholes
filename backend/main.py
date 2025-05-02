@@ -7,10 +7,13 @@ from services.simulation_service import SimulationService
 from utils.file_utils import save_image
 from fastapi.responses import HTMLResponse
 
+
+app = FastAPI()
+
 @app.get("/", response_class=HTMLResponse)
 async def root():
     return "<h2>Game of Life backend is live!</h2><a href='/docs'>API Docs</a>"
-app = FastAPI()
+
 
 # CORS for frontend
 app.add_middleware(
