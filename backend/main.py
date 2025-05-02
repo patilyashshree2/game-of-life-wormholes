@@ -18,7 +18,8 @@ async def root():
 # CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://game-of-life-wormholes-frontend.onrender.com"],
+    # allow_origins=["https://game-of-life-wormholes-frontend.onrender.com"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
