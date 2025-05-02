@@ -5,7 +5,7 @@ export default function App() {
   const [files, setFiles] = useState({});
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(false);
-  const backendURL = "https://your-backend-name.onrender.com";
+  const backendURL = "https://game-of-life-wormholes.onrender.com";
   // const backendURL = "http://localhost:8000";
 
 
